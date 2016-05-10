@@ -27,7 +27,7 @@ func NewCounter() *Counter {
 
 // IncrBy collects a number to add to the total. Presumably the total number of count
 func (c *Counter) IncrBy(i uint64) {
-	c.count += uint64(i)
+	c.count += i
 }
 
 // Current returns the total number of count collected according to the given meter
