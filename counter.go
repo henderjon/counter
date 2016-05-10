@@ -32,16 +32,16 @@ func (c *Counter) IncrBy(i uint64) {
 
 // Current returns the total number of count collected according to the given meter
 func (c *Counter) Current(meter uint64) uint64 {
+	rtn := c.count
 	switch {
 	case meter == Kilobyte:
 		fallthrough
 	case meter == Megabyte:
 		fallthrough
 	case meter == Gigabyte:
-		return (c.count / meter)
-	default:
-		return c.count
+		rtn = c.count / meter
 	}
+	return rtn
 }
 
 // Since returns the age of the byte collector
